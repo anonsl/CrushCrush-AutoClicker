@@ -1,18 +1,34 @@
 import time
-import pyautogui # neccecary library for keyboard/mouse integration in Python3.xx
+import pyautogui
 
-pyautogui.FAILSAFE = True # neccecary to exit the program.
+
+pyautogui.FAILSAFE = True
 
 def main():
-    start = input(str("Start autoclicker? y/N? "))
-    if start == "y":
-        print("sleeping for 10 seconds")
+    runFlirt = input(str(r"Options: 1) Flirt autoclicker 2) Date autoclicker(use: set the chosen date you need and start the script) 3) exit.")).lower()
+    print("Default startup duration 10 seconds.")
+    if runFlirt == "1":
         time.sleep(10)
-        while True:
-            pyautogui.moveTo(1143,373) # pixels of the "flirt" button, screen resolution 1920*1080
-            pyautogui.doubleClick(1143,373) # double clicks the "flirt" button.
+        return flirtClick()
+    elif runFlirt == "2":
+        time.sleep(10)
+        return dateClick()
     else:
-        return 1 # standard C output for IO error.
-        exit()
+        exit()    
+
     
-main() # run main function.    
+def flirtClick():
+    while True:
+        pyautogui.moveTo(1143,373)
+        pyautogui.doubleClick(1143,373, 0.0001)
+            
+
+def dateClick():
+    while True:
+        pyautogui.moveTo(573, 790)
+        pyautogui.doubleClick(573, 790)
+
+
+
+
+main()
